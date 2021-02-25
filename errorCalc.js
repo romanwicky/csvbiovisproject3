@@ -28,7 +28,7 @@ function parseCSV(file, delimiter, callback) {
     
     // Read the file content as a single string
     reader.readAsText(file);
-  };\
+  }
 
   
 
@@ -43,7 +43,7 @@ function parseCSV(file, delimiter, callback) {
     let rows = []
 
     // error calculations here for each row
-    rows.push(actualValue : "", guessedValue: "")
+    rows.push(actualValue: "", guessedValue: "")
 
     
 
