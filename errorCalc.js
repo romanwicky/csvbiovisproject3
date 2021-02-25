@@ -5,6 +5,7 @@
 
 
 // what would we input in parameter? since csv is being generated in email right now and we don't have generated csv file yet
+// unsure
 function parseCSV(file, delimiter, callback) {
     var reader = new FileReader();
   
@@ -28,27 +29,34 @@ function parseCSV(file, delimiter, callback) {
     
     // Read the file content as a single string
     reader.readAsText(file);
-  };\
+  };
 
-  
+
 
 
 // kind of stuck on this functionality
 
   function errorCalc(csvFile) 
   {
-    
+    rowList = csvFile.lines();
+    // let csvContent = "insert csv file.csv";
 
-    // create row variable to calculate % error for each row
-    let rows = []
+    for( var r = 0; r < rowList.length; r++  ) {
+        var row = rowList[ r ];
+        var truePercent = row.getElementsByClassName('TruePercent')[0].value;
+        var reportedPercent = row.getElementsByClassName('ReportedPercent')[0].value;
 
-    // error calculations here for each row
-    rows.push(actualValue : "", guessedValue: "")
+        errorScore = truePercent - reportedPercent;
+        var errorArray = new Array;
 
-    
+        errorArray.push(errorScore)
+    }
 
-  }
+    console.log(errorArray);
+}
   
+
+
 
 
 // function errorCalc(csvFile) {
