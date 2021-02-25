@@ -4,19 +4,18 @@
 //theres a parse library we could import but didn't want to until i talked with team
 
 
-// what would we input in parameter? since csv is being generated in email right now and we don't have generated csv file yet
 function parseCSV(file, delimiter, callback) {
-    var reader = new FileReader();
+    let reader = new FileReader();
   
     // When the FileReader has loaded the file...
     reader.onload = function() {
     
       // Split the result to an array of lines
-      var lines = this.result.split('\n');
+      let lines = this.result.split('\n');
       
       // Split the lines themselves by the specified
       // delimiter, such as a comma
-      var result = lines.map(function(line) {
+      let result = lines.map(function(line) {
           return line.split(delimiter);
       });
       
@@ -30,25 +29,31 @@ function parseCSV(file, delimiter, callback) {
     reader.readAsText(file);
   }
 
+
+
+  function errorCalc(csvFile){
+
+    let errorArr = [];
+    let rowList = csvFile.lines();
+    // let csvContent = "insert csv file.csv";
+
+    for(let r = 0; r < rowList.length; r++  ) {
+        let row = rowList[ r ];
+        let vis = row.getElementsByClassName("Vis")[0].value;
+        let truePercent = row.getElementsByClassName('TruePercent')[0].value;
+        let reportedPercent = row.getElementsByClassName('ReportedPercent')[0].value;
+
+         // error calculations here for each row
+        let errorScore = Math.abs(Math.log2(reportedPercent/truePercent));
+        errorScore.push([vis, errorScore]);
+
+    }
+
+    console.log(errorArr);
+}
   
 
 
-// kind of stuck on this functionality
-
-  function errorCalc(csvFile) 
-  {
-    
-
-    // create row variable to calculate % error for each row
-    let rows = []
-
-    // error calculations here for each row
-    rows.push(actualValue: "", guessedValue: "")
-
-    
-
-  }
-  
 
 
 // function errorCalc(csvFile) {
