@@ -1,3 +1,10 @@
+
+
+// copied this from online but feel like theres a different way to parse
+//theres a parse library we could import but didn't want to until i talked with team
+
+
+// what would we input in parameter? since csv is being generated in email right now and we don't have generated csv file yet
 function parseCSV(file, delimiter, callback) {
     var reader = new FileReader();
   
@@ -21,11 +28,23 @@ function parseCSV(file, delimiter, callback) {
     
     // Read the file content as a single string
     reader.readAsText(file);
-  };
+  };\
 
+  
+
+
+// kind of stuck on this functionality
 
   function errorCalc(csvFile) 
   {
+    
+
+    // create row variable to calculate % error for each row
+    let rows = []
+
+    // error calculations here for each row
+    rows.push(actualValue : "", guessedValue: "")
+
     
 
   }
